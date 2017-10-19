@@ -19,28 +19,32 @@ import { AppState } from './app.service';
     './app.component.css'
   ],
   template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a>
-      <a [routerLink]=" ['./detail'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Detail
-      </a>
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
-      </a>
-    </nav>
+ 
+<mat-toolbar color="primary">
+   
+
+  <span>Material in Angular 2!, App</span>
+
+  <span class="middle"></span>
+
+  <span>
+
+<a mat-button routerLink="./">index</a>
+      
+<a mat-button routerLink="./home">Home</a>
+    
+<a mat-button routerLink="./detail">Detail</a>
+
+<a mat-button routerLink="./barrel">Barel</a>
+
+<a mat-button routerLink="./about">About</a>
+  
+  </span>
+
+
+
+  </mat-toolbar>
+    
 
     <main>
       <router-outlet></router-outlet>
@@ -48,13 +52,9 @@ import { AppState } from './app.service';
 
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
+
     <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
+      
     </footer>
   `
 })
