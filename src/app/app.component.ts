@@ -33,9 +33,11 @@ import { AppState } from './app.service';
       
 <a mat-button routerLink="./home">Home</a>
     
-<a mat-button routerLink="./detail">Detail</a>
+<a mat-button routerLink="./events">Events</a>
 
 <a mat-button routerLink="./barrel">Barel</a>
+
+<a mat-button routerLink="./detail">Detail</a>
 
 <a mat-button routerLink="./about">About</a>
   
@@ -48,9 +50,10 @@ import { AppState } from './app.service';
 
     <main>
       <router-outlet></router-outlet>
+    
     </main>
 
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+   
 
 
     <footer>
