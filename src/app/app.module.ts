@@ -42,6 +42,7 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { EventsListComponent } from './events';
+import { EventsThumbnailComponent } from './events/event-thumbnail.component';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
@@ -70,6 +71,7 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     EventsListComponent,
+    EventsThumbnailComponent,
     NoContentComponent,
     XLargeDirective
   ],
