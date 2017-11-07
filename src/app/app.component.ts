@@ -35,6 +35,8 @@ import { AppState } from './app.service';
     
 <a mat-button routerLink="./events">Events</a>
 
+<a mat-button routerLink="./eventos">Eventos</a>
+
 <a mat-button routerLink="./barrel">Barel</a>
 
 <a mat-button routerLink="./detail">Detail</a>

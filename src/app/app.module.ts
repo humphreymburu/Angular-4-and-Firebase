@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from './material.modules';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {A11yModule} from '@angular/cdk/a11y';
+import { A11yModule } from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
 import {ObserversModule} from '@angular/cdk/observers';
 import {OverlayModule} from '@angular/cdk/overlay';
@@ -13,6 +13,9 @@ import {PortalModule} from '@angular/cdk/portal';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
+
+import { EventoModule } from './+evento/evento.module';
+
 
 import {
   NgModule,
@@ -35,16 +38,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
-import { EventsListComponent } from './events';
-import { EventsThumbnailComponent } from './events/event-thumbnail.component';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
+
+
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -70,8 +74,6 @@ type StoreType = {
     AppComponent,
     AboutComponent,
     HomeComponent,
-    EventsListComponent,
-    EventsThumbnailComponent,
     NoContentComponent,
     XLargeDirective
   ],
@@ -96,10 +98,13 @@ type StoreType = {
     FormsModule,
     HttpModule,
     MaterialModule,
+    EventoModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
     })
+   
+
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

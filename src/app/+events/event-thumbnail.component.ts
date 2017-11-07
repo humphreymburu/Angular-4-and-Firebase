@@ -6,6 +6,7 @@ import {
     selector: 'event-thumbnail',
     template: `
     <mat-card>
+    <div [routerLink] ="['/events', event.id]">
     <h2> {{event?.name}}</h2>
     <div>Date: {{event?.date}}</div>
     <div [ngClass]="getStartTimeClass()" [ngSwitch] = "event?.time">
@@ -23,6 +24,7 @@ import {
     </div>
     <div *ngIf = event?.onlineUrl>
     Online URL {{event?.onlineUrl}}
+    </div>
     </div>
     </mat-card>
     `,

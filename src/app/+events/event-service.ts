@@ -1,21 +1,47 @@
-import {
-  Component,
-} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
-@Component({
-    selector: 'events-list',
-    template: `
-    <div>
-    <h1>Upcoming Tukio 2 Events</h1>
-    <hr/>
-    <event-thumbnail *ngFor="let event of events" [event] = "event"></event-thumbnail>
-    </div>
-    `
-})
 
-export class EventsListComponent {
-  events = [
+
+
+ export class Event {
+  constructor(
+    public id: number, 
+    public name: string,
+    public date: Date,
+    public time: Date,
+    public price: number,
+    public imageUrl: string,
+   
+    
+    public location: {
+      address: string,
+      city: string,
+      country: string
+    }
+    ) { }
+}
+
+
+@Injectable()
+export class EventService {
+  getEvents() {
+     return EVENTS;
+  }
+
+
+
+    getEvent(id: number | string) {
+      return EVENTS.find(event => event.id === id);
+  }
+
+}
+
+
+
+const EVENTS = [
     {
       id: 1,
       name: 'Angular Connect',
@@ -321,5 +347,3 @@ export class EventsListComponent {
       ]
     }
   ]
-}
-
