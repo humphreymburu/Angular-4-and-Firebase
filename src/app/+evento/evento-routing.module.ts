@@ -4,13 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { EventoComponent }    from './evento.component';
 import { EventoDetailComponent }  from './+evento-detail/evento-detail.component';
+import { NoContentComponent } from '../no-content';
+import { EventoRouteActivator } from './+evento-detail/evento-router-activator.service';
 
 const EventoRoutes: Routes = [
   {  path: 'eventos', redirectTo: '/eventos' },
   {  path: 'evento/:id', redirectTo: '/evento/:id' },
   {  path: 'eventos',  component: EventoComponent },
-  {  path: 'evento/:id', component: EventoDetailComponent }
-
+  {  path: 'evento/:id', component: EventoDetailComponent, canActivate:[EventoRouteActivator] },
+  { path: '**',    component: NoContentComponent },
+  
 ];
 
 @NgModule({
@@ -19,6 +22,11 @@ const EventoRoutes: Routes = [
   ],
   exports: [
     RouterModule
+  ]
+  ,
+  providers: [
+   EventoRouteActivator
+
   ]
 })
 export class EventoRoutingModule { }
