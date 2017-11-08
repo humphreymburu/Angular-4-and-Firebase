@@ -23,7 +23,7 @@ import { AppState } from './app.service';
 <mat-toolbar color="primary">
    
 
-  <span>Material in Angular 2!, App</span>
+  <span>TUKIO</span>
 
   <span class="middle"></span>
 
@@ -33,9 +33,7 @@ import { AppState } from './app.service';
       
 <a mat-button routerLink="./home">Home</a>
     
-<a mat-button routerLink="./events">Events</a>
-
-<a mat-button routerLink="./eventos">Eventos</a>
+<a mat-button routerLink="./eventos" routerLinkActive="active">Eventos</a>
 
 <a mat-button routerLink="./barrel">Barel</a>
 

@@ -15,7 +15,7 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 
 import { EventoModule } from './+evento/evento.module';
-
+import { ProfileModule } from './+user/profile.module';
 
 import {
   NgModule,
@@ -99,6 +99,7 @@ type StoreType = {
     HttpModule,
     MaterialModule,
     EventoModule,
+    ProfileModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules

@@ -9,3 +9,6 @@ html, body{
   flex: 1 1 auto;
 }
 
+span a.active {
+  color: #F97924;
+}
