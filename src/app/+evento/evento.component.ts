@@ -2,6 +2,9 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
+
 /**
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
@@ -27,12 +30,13 @@ export class EventoComponent implements OnInit {
 
 events: any[];
 
-   constructor(private eventService: EventoService) {
+   constructor(private eventService: EventoService, private route: ActivatedRoute) {
 
    }
 
-   public ngOnInit() {
-     this.events = this.eventService.getEvents();
+    ngOnInit() {
+     //this.eventService.getEvents().subscribe(events => {this.events = events});
+     this.events = this.route.snapshot.data['events']
    }
 
 }
