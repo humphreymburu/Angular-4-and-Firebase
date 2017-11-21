@@ -1,0 +1,37 @@
+<h1>Login</h1>
+<hr>
+<div fxLayout="row" fxLayoutAlign="center center">
+
+            
+            
+<mat-card fxFlex="66.66%">
+  
+        
+<mat-card>
+<mat-card-header><mat-card-title>Login</mat-card-title></mat-card-header>
+<mat-card-content>
+<form #loginForm="ngForm"  (ngSubmit) = "login(loginForm.value)" autocomplete="off" class="form-login">
+<div>
+
+<mat-form-field>
+<input matInput (ngModel)="userName" placeholder="User Name" name="userName" required class="form-control">
+<em *ngIf="loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseoverLogin)"
+>Required</em>
+</mat-form-field>
+
+<mat-form-field>
+<input matInput (ngModel)="password" placeholder="Password" name="password" required class="form-control">
+<em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched || mouseoverLogin)"
+>Required</em>
+</mat-form-field>
+
+</div>
+<span (mouseenter)= "mouseoverLogin=true" (mouseleave) = "mouseoverLogin=false">
+<button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button></span>
+
+<button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+</form>
+</mat-card-content>
+</mat-card>  
+          
+</div>

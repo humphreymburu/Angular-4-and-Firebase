@@ -1,8 +1,9 @@
 import { ProfileComponent } from './profile.component';
+import { LoginComponent } from './login.component';
+
 
 export const routes = [
-  { path: '', children: [
+
     { path: 'profile', component: ProfileComponent },
-    { path: 'user', loadChildren: './profile.module#ProfileModule' }
-  ]},
+    { path: 'login', component: LoginComponent },
 ];

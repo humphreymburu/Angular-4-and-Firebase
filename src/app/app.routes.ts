@@ -13,5 +13,7 @@ export const ROUTES: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'detail', loadChildren: './+detail#DetailModule'},
   { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
+  { path: 'user', loadChildren: './+users/profile.module#ProfileModule'},
+ // { path: 'login',loadChildren: './+users/profile.module#ProfileModule'},
   { path: '**',    component: NoContentComponent },
 ];

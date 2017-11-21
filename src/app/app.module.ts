@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import 'hammerjs';
+
 import { MaterialModule } from './material.modules';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { A11yModule } from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
@@ -15,7 +18,9 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 
 import { EventoModule } from './+evento/evento.module';
-import { ProfileModule } from './+user/profile.module';
+//import { ProfileModule } from './+user/profile.module';
+import { AuthService } from './+users/auth.service';
+
 
 import {
   NgModule,
@@ -93,13 +98,14 @@ type StoreType = {
    * Import Angular's modules.
    */
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     MaterialModule,
+    //ProfileModule,
     EventoModule,
-    ProfileModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
@@ -112,7 +118,8 @@ type StoreType = {
    */
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AuthService
   ]
 })
 export class AppModule {

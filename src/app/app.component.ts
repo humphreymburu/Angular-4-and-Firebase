@@ -6,7 +6,9 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
+
 import { AppState } from './app.service';
+import { AuthService } from './+users/auth.service';
 
 /**
  * App Component
@@ -37,9 +39,14 @@ import { AppState } from './app.service';
 
 <a mat-button routerLink="./barrel">Barel</a>
 
-<a mat-button routerLink="./detail">Detail</a>
+<a mat-button routerLink="./create">Create Events</a>
 
 <a mat-button routerLink="./about">About</a>
+
+<a mat-button *ngIf ="!auth.isAuthenticated()" routerLink="./user/login">LOGIN</a>
+<a mat-button *ngIf= "auth.isAuthenticated()" routerLink="./user/profile">WELCOME</a>
+
+
   
   </span>
 
@@ -63,12 +70,10 @@ import { AppState } from './app.service';
 })
 export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+  public name = 'Eventa App';
+  public url = '';
 
-  constructor(
-    public appState: AppState
-  ) {}
+  constructor(public appState: AppState , private auth: AuthService ) {}
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);

@@ -1,7 +1,7 @@
 import {
   Component, Input
 } from '@angular/core';
-
+import { IEvento, ISession } from './shared/evento-model';
  
 
 @Component({
@@ -10,7 +10,8 @@ import {
     <mat-card>
     <div [routerLink] ="['/evento', event.id]">
     <h2> {{event?.name}}</h2>
-    <div>Date: {{event?.date}}</div>
+    <div>Start Date: {{event?.startDate}}</div>  
+    <div>End Date: {{event?.endDate}}</div>
     <div [ngClass]="getStartTimeClass()" [ngSwitch] = "event?.time">
     Time: {{event?.time}}
     <span *ngSwitchCase="'8:00 am'">, Earley Start</span>
@@ -19,10 +20,12 @@ import {
 
     </div>
     <div>Price: \${{event?.price}}</div>
+    <div>Place: \${{event?.places}}</div>
     <div *ngIf = event?.location>
     <span>Location:{{event?.location?.address}}</span>
     <span class="pad-left">&nbsp;</span>
-    <span>{{event?.location?.city}}, {{event?.location?.country}}</span>
+    <span>{{event?.location?.city}}, 
+    {{event?.location?.country}}</span>
     </div>
     <div *ngIf = event?.onlineUrl>
     Online URL {{event?.onlineUrl}}
@@ -42,7 +45,7 @@ import {
 })
 
 export class EventoThumbnailComponent {
-  @Input() event:any;
+  @Input() event:IEvento;
 
   getStartTimeClass() {
       const isEarly = this.event && this.event.time === '8:00 am';

@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { IEvento, ISession } from '../shared/evento-model';
 import { EventoService } from "../evento-service";
 
 /**
@@ -24,7 +24,7 @@ console.log('`EventoDetail` component loaded asynchronously');
 
 
 export class EventoDetailComponent implements OnInit {
-   event:any;
+   event:IEvento;
     constructor(
         private eventService: EventoService, 
         private router: Router, 
