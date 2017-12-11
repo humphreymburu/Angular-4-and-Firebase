@@ -2,10 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import 'hammerjs';
 
+
 import { MaterialModule } from './material.modules';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { MatDatepickerModule} from '@angular/material';
+import { MatTabsModule } from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
+import { MatListModule } from '@angular/material';
+
 
 import { A11yModule } from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
@@ -20,7 +30,11 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { EventoModule } from './+evento/evento.module';
 //import { ProfileModule } from './+user/profile.module';
 import { AuthService } from './+users/auth.service';
+import { JQ_TOKEN, JQUERY_PROVIDER, ModalTriggerDirective } from './common/index';
 
+
+
+declare let jQuery: Object;
 
 import {
   NgModule,
@@ -45,7 +59,7 @@ import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 
 // App is our top level component
-import { AppComponent } from './app.component';
+import { AppComponent, SimpleDialogComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
@@ -80,8 +94,18 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
+    ModalTriggerDirective,
+    SimpleDialogComponent,
     XLargeDirective
   ],
+
+  entryComponents: [
+    SimpleDialogComponent,
+    AppComponent
+  ],
+    
+  
+
   exports: [
     //CDK
     A11yModule,
@@ -104,6 +128,16 @@ type StoreType = {
     FormsModule,
     HttpModule,
     MaterialModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatTabsModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatListModule,
     //ProfileModule,
     EventoModule,
     RouterModule.forRoot(ROUTES, {
@@ -119,7 +153,8 @@ type StoreType = {
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    AuthService
+    AuthService,
+    { provide: JQ_TOKEN, useValue: jQuery },
   ]
 })
 export class AppModule {

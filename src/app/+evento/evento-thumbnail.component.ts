@@ -1,5 +1,5 @@
 import {
-  Component, Input
+  Component, Input, Pipe
 } from '@angular/core';
 import { IEvento, ISession } from './shared/evento-model';
  
@@ -9,9 +9,9 @@ import { IEvento, ISession } from './shared/evento-model';
     template: `
     <mat-card>
     <div [routerLink] ="['/evento', event.id]">
-    <h2> {{event?.name}}</h2>
-    <div>Start Date: {{event?.startDate}}</div>  
-    <div>End Date: {{event?.endDate}}</div>
+    <h2> {{event?.name | uppercase }}</h2>
+    <div>Start Date: {{event?.startDate | date }}</div>  
+    <div>End Date: {{event?.endDate | date }}</div>
     <div [ngClass]="getStartTimeClass()" [ngSwitch] = "event?.time">
     Time: {{event?.time}}
     <span *ngSwitchCase="'8:00 am'">, Earley Start</span>
@@ -19,8 +19,8 @@ import { IEvento, ISession } from './shared/evento-model';
     <span *ngSwitchDafault> (normal-start)</span>
 
     </div>
-    <div>Price: \${{event?.price}}</div>
-    <div>Place: \${{event?.places}}</div>
+    <div>Price: \Ksh {{event?.price }}</div>
+    <div>Place: {{event?.places}}</div>
     <div *ngIf = event?.location>
     <span>Location:{{event?.location?.address}}</span>
     <span class="pad-left">&nbsp;</span>

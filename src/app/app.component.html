@@ -1,0 +1,63 @@
+<mat-toolbar color="primary">
+    
+ <div fxLayout="row" fxLayoutAlign="space-around center" >
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   <span fxFlex="10">TUKIO</span>
+   <br/>
+ 
+   <span class="middle" fxFlex="40">
+ 
+   <form (ngSubmit) = "searchSessions(searchTerm)" class="search_form">
+   <mat-form-field class="form-full-width">
+      <span class="mat-button-wrapper" >
+          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">search</mat-icon>
+        </span>
+   <input matInput [(ngModel)]="searchTerm" name="searchTerm" type="search" (click)="openDialog()">
+  </mat-form-field>
+  
+ </form>
+   </span>
+ 
+   <span fxFlex="50">
+ 
+ <a mat-button routerLink="./">index</a>
+       
+ <a mat-button routerLink="./home">Home</a>
+     
+ <a mat-button routerLink="./eventos" routerLinkActive="active">Eventos</a>
+ 
+ <a mat-button routerLink="./barrel">Barel</a>
+ 
+ <a mat-button routerLink="./create">Create Events</a>
+ 
+ <a mat-button routerLink="./about">About</a>
+ 
+ <a mat-button *ngIf ="!auth.isAuthenticated()" routerLink="./user/login">LOGIN</a>
+ <a mat-button *ngIf= "auth.isAuthenticated()" routerLink="./user/profile">WELCOME</a>
+ 
+ 
+   
+   </span>
+ 
+   </div>
+ 
+   </mat-toolbar>
+
+     
+    <main>
+       <router-outlet></router-outlet>
+     
+     </main>
+ 
+    
+ 
+ 
+     <footer>
+       
+     </footer>

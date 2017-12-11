@@ -28,13 +28,15 @@
       "node",
       "source-map",
       "uglify-js",
-      "webpack"
+      "webpack",
+      "jquery"
     ]
   },
   "exclude": [
     "node_modules",
     "dist"
   ],
+
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
     "useWebpackText": true

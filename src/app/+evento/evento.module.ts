@@ -7,7 +7,8 @@ import { MaterialModule } from '../material.modules';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
-import {MatDatepickerModule} from '@angular/material';
+import { MatDatepickerModule} from '@angular/material';
+import { MatTabsModule } from '@angular/material';
 
 import { EventoComponent } from './evento.component';
 import { EventoThumbnailComponent  }  from './evento-thumbnail.component';
@@ -18,9 +19,11 @@ import { CreateComponent } from './create-event.component';
 import { EventoRouteActivator } from './+evento-detail/evento-router-activator.service';
 import { EventoListResolver } from './evento-list-resolver.service';
 import { IEvento, ISession } from './shared/evento-model';
+import { SessionListComponent } from './+evento-detail/session-list.component'
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { DurationPipe } from './shared/duration.pipe';
 
-
-console.log('`Detail` bundle loaded asynchronously');
+console.log('`Event and Detail` bundle loaded asynchronously');
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ console.log('`Detail` bundle loaded asynchronously');
     EventoComponent,
     EventoThumbnailComponent,
     EventoDetailComponent,
-    CreateComponent
+    CreateComponent,
+    CollapsibleWellComponent,
+    SessionListComponent,
+    DurationPipe
   ],
   imports: [
     CommonModule,
@@ -41,6 +47,7 @@ console.log('`Detail` bundle loaded asynchronously');
     FlexLayoutModule,
     ReactiveFormsModule,
     MatDatepickerModule,
+    MatTabsModule,
     MaterialModule,
     EventoRoutingModule
   ],

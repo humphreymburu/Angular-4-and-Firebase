@@ -3,7 +3,7 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { IEvento, ISession } from '../shared/evento-model';
 import { EventoService } from "../evento-service";
 
@@ -25,13 +25,17 @@ console.log('`EventoDetail` component loaded asynchronously');
 
 export class EventoDetailComponent implements OnInit {
    event:IEvento;
+   filterBy: string ='all';
     constructor(
         private eventService: EventoService, 
         private router: Router, 
         private route: ActivatedRoute) {}
     
  ngOnInit() {
-   this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+     this.route.params.forEach((params:Params)=> {
+        this.event = this.eventService.getEvent(+params['id']);
+     })
+   
   
     };
 
