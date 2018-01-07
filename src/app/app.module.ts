@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import 'hammerjs';
 
 
@@ -15,6 +20,7 @@ import { MatTabsModule } from '@angular/material';
 import { MatAutocompleteModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 
 
 import { A11yModule } from '@angular/cdk/a11y';
@@ -55,7 +61,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /*
  * Platform and Environment providers/directives/pipes
  */
-import { ENV_PROVIDERS } from './environment';
+import { ENV_PROVIDERS, environment } from './environment';
 import { ROUTES } from './app.routes';
 
 // App is our top level component
@@ -127,6 +133,7 @@ type StoreType = {
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     MaterialModule,
     MatFormFieldModule,
     MatInputModule,
@@ -138,8 +145,12 @@ type StoreType = {
     MatAutocompleteModule,
     MatDialogModule,
     MatListModule,
+    MatIconModule,
     //ProfileModule,
     EventoModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules

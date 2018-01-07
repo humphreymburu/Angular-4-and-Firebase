@@ -31,6 +31,8 @@ import { IEvento, ISession } from './shared/evento-model';
     Online URL {{event?.onlineUrl}}
     </div>
     </div>
+
+   
     </mat-card>
     `,
     styles: [` 

@@ -5,6 +5,8 @@ import {
 
 import { IEvento, ISession } from '../shared/evento-model';
 import { EventoService } from "../evento-service";
+import { AuthService }  from "../../+users/auth.service";
+import { VoterService }  from "../+evento-detail/voter.services"
 
 /**
  * We're loading this component asynchronously
@@ -25,6 +27,10 @@ export class SessionListComponent implements  OnChanges {
     @Input() filterBy: string;
     visibleSessions: ISession[] = [];
 
+    constructor(private auth: AuthService, private voterService: VoterService){
+        console.log(auth.currentUser);
+    }
+
     ngOnChanges() {
         if(this.sessions){
             this.filterSessions(this.filterBy);
@@ -40,4 +46,21 @@ export class SessionListComponent implements  OnChanges {
          })  
        }
    }
+   
+
+   toggleVote(session: ISession){
+       if(this.userHasVoted(session)){
+           this.voterService.deleteVoter(session, this.auth.currentUser.userName);
+
+       } else {
+           this.voterService.addVoter(session, this.auth.currentUser.userName);
+       }
+
+   }
+
+  userHasVoted(session: ISession) {
+      return this.voterService.userHasVoted(session, this.auth.currentUser.userName);
+  }
+
+
 }

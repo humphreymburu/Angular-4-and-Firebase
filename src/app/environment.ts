@@ -70,3 +70,14 @@ export const decorateModuleRef = _decorateModuleRef;
 export const ENV_PROVIDERS = [
   ...PROVIDERS
 ];
+
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDwnI9_Tdz7YWvIf3WbMPLsQRC_UyhB-zo',
+    authDomain: 'tukio-1cb4e.firebaseapp.com',
+    databaseURL: 'https://tukio-1cb4e.firebaseio.com',
+    projectId: 'tukio-1cb4e',
+    storageBucket: '641229721325'
+  }
+};

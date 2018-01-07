@@ -1,7 +1,7 @@
 <mat-card>
    <p>test</p>
   <img [src]="event?.imageUrl" [alt]="event?.name" class="event-img">
-
+  <div><span>id: </span>{{event?.id}}</div>
   <div class="row">
     <div class="col-md-11">
       <h2>{{event?.name}} </h2>
@@ -26,11 +26,6 @@
   </div>
   <hr>
   
-  
-
-
-
-
   <div class="button-row">
   <button mat-button label="All" [class.active]="filterBy==='all'" (click)="filterBy='all'" color="accent">all
   </button>

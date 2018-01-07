@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
  */
 
 import { EventoService } from './evento-service';
+import { IEvento } from 'src/app/+evento/shared/evento-model';
 
 
 console.log('`Detail` component loaded asynchronously');
@@ -22,13 +23,14 @@ console.log('`Detail` component loaded asynchronously');
     <div>
     <h1>Upcoming Tukio 2 Events</h1>
     <hr/>
-    <evento-thumbnail *ngFor="let event of events" [event] = "event"></evento-thumbnail>
+    <evento-thumbnail *ngFor="let event of eventos" [event] = "event"></evento-thumbnail>
     </div>
   `,
 })
 export class EventoComponent implements OnInit {
 
-events: any[];
+//events: IEvento;
+eventos: IEvento[];
 
    constructor(private eventService: EventoService, private route: ActivatedRoute) {
 
@@ -36,7 +38,16 @@ events: any[];
 
     ngOnInit() {
      //this.eventService.getEvents().subscribe(events => {this.events = events});
-     this.events = this.route.snapshot.data['events']
+    // this.events = this.route.snapshot.data['events'];
+     this.getEventos();
+
+     console.log("test", this.eventos);
    }
+
+
+   getEventos(): void {
+    this.eventService.getEventos()
+    .subscribe(eventos => this.eventos = eventos);
+  }
 
 }

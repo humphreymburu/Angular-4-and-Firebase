@@ -22,6 +22,8 @@ import { IEvento, ISession } from './shared/evento-model';
 import { SessionListComponent } from './+evento-detail/session-list.component'
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { DurationPipe } from './shared/duration.pipe';
+import { UpVoteComponent }  from './+evento-detail/upvote.component';
+import { VoterService }  from '../+evento/+evento-detail/voter.services';
 
 console.log('`Event and Detail` bundle loaded asynchronously');
 
@@ -36,7 +38,8 @@ console.log('`Event and Detail` bundle loaded asynchronously');
     CreateComponent,
     CollapsibleWellComponent,
     SessionListComponent,
-    DurationPipe
+    DurationPipe,
+    UpVoteComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +54,7 @@ console.log('`Event and Detail` bundle loaded asynchronously');
     MaterialModule,
     EventoRoutingModule
   ],
-  providers: [ EventoService, EventoRouteActivator, EventoListResolver ]
+  providers: [ EventoService,  VoterService, EventoRouteActivator, EventoListResolver ]
 })
 
 

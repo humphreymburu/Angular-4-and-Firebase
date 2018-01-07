@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  Input
 } from '@angular/core';
 
 import { Router, ActivatedRoute, ParamMap, Params } from '@angular/router';
@@ -24,20 +25,30 @@ console.log('`EventoDetail` component loaded asynchronously');
 
 
 export class EventoDetailComponent implements OnInit {
-   event:IEvento;
+  //event:IEvento;
+
+  @Input() event: IEvento;
+
    filterBy: string ='all';
     constructor(
         private eventService: EventoService, 
         private router: Router, 
         private route: ActivatedRoute) {}
     
- ngOnInit() {
-     this.route.params.forEach((params:Params)=> {
-        this.event = this.eventService.getEvent(+params['id']);
-     })
-   
-  
+ ngOnInit(): void {
+     //this.route.params.forEach((params:Params)=> {
+       //this.event = this.eventService.getEvent(+params['id']);
+    // })
+//this.getEvent();   
+console.log("test eventt", this.getEvent());
     };
 
-    
+    getEvent(){
+        const id = +this.route.snapshot.paramMap.get('id');
+       return this.eventService.getEvent(id)
+          .subscribe(event => this.event = event);
+      }
+
+
+
 }

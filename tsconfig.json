@@ -29,7 +29,8 @@
       "source-map",
       "uglify-js",
       "webpack",
-      "jquery"
+      "jquery",
+      "firebase"
     ]
   },
   "exclude": [

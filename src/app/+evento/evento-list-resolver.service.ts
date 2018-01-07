@@ -7,7 +7,7 @@ export class EventoListResolver implements Resolve<any> {
     constructor(private eventoService: EventoService){}
 
     resolve() {
-    return this.eventoService.getEvents().map(events => events)
+    return this.eventoService.getEventos().map(events => events)
    }
 }
 
