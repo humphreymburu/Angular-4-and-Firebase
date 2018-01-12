@@ -17,7 +17,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@angular/*": ["node_modules/@angular/*"]
+      "@angular/*": ["node_modules/@angular/*"],
+      "font-awesome": ["node_modules/font-awesome/*"]
     },
     "typeRoots": [
       "node_modules/@types"

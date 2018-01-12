@@ -1,12 +1,9 @@
+
+<header>
+  
 <mat-toolbar color="primary">
     
  <div fxLayout="row" fxLayoutAlign="space-around center" >
- 
- 
- 
- 
- 
- 
  
    <span fxFlex="10">TUKIO</span>
    <br/>
@@ -48,7 +45,7 @@
    </div>
  
    </mat-toolbar>
-
+  </header>
      
     <main>
        <router-outlet></router-outlet>
@@ -59,5 +56,26 @@
  
  
      <footer>
-       
+     
+
+
+      <mat-toolbar color="primary" class="footer-section">
+     
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="100%">
+       <div fxFlex="100%" class="footer-icons">
+        <a href="https://www.github.com/humphreymburu" target="_blank">
+          <i class="fa fa-github fa-1x" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/humphreymburu" target="_blank">
+          <i class="fa fa-facebook fa-1x" aria-hidden="true"></i></a>
+        <a href="https://www.twitter.com/tomastrajan" target="_blank">
+          <i class="fa fa-twitter fa-1x" aria-hidden="true"></i></a>
+      </div>
+
+       <div fxFlex="100%" class="copyright">
+        <p>&#169; 2018 - Humphrey Mburu</p>
+       </div>
+
+       </div>
+
+     </mat-toolbar>
      </footer>

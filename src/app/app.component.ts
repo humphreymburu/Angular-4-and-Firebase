@@ -18,6 +18,7 @@ import { ISession } from './+evento/shared/evento-model';
 //import { SimpleDialogComponent } from './common/simple-modal.component';
 
 
+
 /**
  * App Component
  * Top Level Component

@@ -20,12 +20,29 @@ console.log('`Detail` component loaded asynchronously');
 @Component({
   selector: 'detail',
   template: `
-    <div>
-    <h1>Upcoming Tukio 2 Events</h1>
-    <hr/>
-    <evento-thumbnail *ngFor="let event of eventos" [event] = "event"></evento-thumbnail>
-    </div>
+  <div class="upcoming-events">
+    <h1 class="title">Upcoming Events</h1>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" fxLayoutWrap class="wrapper">
+  <evento-thumbnail *ngFor="let event of eventos" [event] = "event"></evento-thumbnail>
+  </div>
   `,
+  styles: [`
+  .upcoming-events {
+    padding: 35px 20px;
+    text-align: center; 
+    letter-spacing: 2px;
+    color: #333;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .wrapper {
+  }
+   
+  `]
 })
 export class EventoComponent implements OnInit {
 
