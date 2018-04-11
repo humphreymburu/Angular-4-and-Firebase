@@ -22,26 +22,23 @@
    </span>
  
    <span fxFlex="50">
- 
- <a mat-button routerLink="./">index</a>
        
  <a mat-button routerLink="./home">Home</a>
-     
- <a mat-button routerLink="./eventos" routerLinkActive="active">Eventos</a>
- 
- <a mat-button routerLink="./barrel">Barel</a>
- 
+ <a mat-button routerLink="./eventos" routerLinkActive="active"> Find Events</a>
  <a mat-button routerLink="./create">Create Events</a>
  
- <a mat-button routerLink="./about">About</a>
- 
- <a mat-button *ngIf ="!auth.isAuthenticated()" routerLink="./user/login">LOGIN</a>
- <a mat-button *ngIf= "auth.isAuthenticated()" routerLink="./user/profile">WELCOME</a>
- 
- 
-   
+ <a mat-button *ngIf ="isAuth" routerLink="./user/login">LOGIN</a>
+ <a mat-button *ngIf= "!isAuth" routerLink="./user/profile">WELCOME</a>
+
    </span>
- 
+
+
+
+
+
+
+
+   
    </div>
  
    </mat-toolbar>

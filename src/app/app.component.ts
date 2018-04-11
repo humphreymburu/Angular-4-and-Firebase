@@ -15,6 +15,8 @@ import { AppState } from './app.service';
 import { AuthService } from './+users/auth.service';
 import { EventoService } from './+evento/evento-service';
 import { ISession } from './+evento/shared/evento-model';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 //import { SimpleDialogComponent } from './common/simple-modal.component';
 
 
@@ -40,9 +42,18 @@ export class AppComponent implements OnInit {
 
   public searchTerm: string = "";
   foundSessions: ISession[];
+  public test: boolean;
+
+  
 
 
-  constructor(public appState: AppState , private auth: AuthService, private eventoServ: EventoService, public dialog: MatDialog ) {}
+  constructor(public appState: AppState, private auth: AuthService, private eventoServ: EventoService, public dialog: MatDialog, public afAuth: AngularFireAuth ) {}
+
+  isAuth() {
+    return this.auth.authenticated;
+  }
+
+
 
   searchSessions(searchTerm) {
       this.eventoServ.searchSessions(searchTerm).subscribe
@@ -114,7 +125,7 @@ export class SimpleDialogComponent {
   
     constructor(
       public dialogRef: MatDialogRef<SimpleDialogComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: any) { console.log(data); }
+      @Inject(MAT_DIALOG_DATA) public data: any, public afAuth: AngularFireAuth ) { console.log(data); }
      
     onNoClick(): void {
       this.dialogRef.close();
@@ -122,14 +133,3 @@ export class SimpleDialogComponent {
   
 }
 
-
-
-
-
-/**
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */

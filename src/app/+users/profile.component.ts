@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   private  firstName:FormControl;
   private  lastName:FormControl;
 
-  constructor(private authService: AuthService, private route:Router) {  
+  constructor(private auth: AuthService, private route:Router) {  
   }
 
   
@@ -37,8 +37,8 @@ export class ProfileComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `Profile` component');
 
-    this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
-    this.lastName = new FormControl(this.authService.currentUser.lastName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
+    this.firstName = new FormControl(this.auth.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
+    this.lastName = new FormControl(this.auth.currentUser.lastName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
 
 
     this.profileForm = new FormGroup({
