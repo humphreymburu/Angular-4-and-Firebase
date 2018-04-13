@@ -17,7 +17,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@angular/*": ["node_modules/@angular/*"]
+      "@angular/*": ["node_modules/@angular/*"],
+      "font-awesome": ["node_modules/font-awesome/*"]
     },
     "typeRoots": [
       "node_modules/@types"
@@ -28,13 +29,16 @@
       "node",
       "source-map",
       "uglify-js",
-      "webpack"
+      "webpack",
+      "jquery",
+      "firebase"
     ]
   },
   "exclude": [
     "node_modules",
     "dist"
   ],
+
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
     "useWebpackText": true
